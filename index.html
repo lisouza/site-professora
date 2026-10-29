@@ -1,193 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
+<html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Professora Aline de Souza</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.add('js')</script>
+<title>Sistema de Notas</title>
 <style>
-:root{
-  --thistle:#D8BFD8; --hero-a:#E6D2E8; --hero-b:#D8BFD8; --hero-ink:#2A1235; --hero-muted:#5A3D66;
-  --bg:#FBF8FC; --surface:#FFFFFF; --ink:#241530; --muted:#66566F; --line:#E8DCEB;
-  --accent:#4B1F5A; --on-accent:#FBF8FC; --panel:#3A1747; --panel-ink:#F5EBF7;
-  --shadow:0 10px 30px -12px rgba(75,31,90,.25);
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --hero-a:#3A2341; --hero-b:#2A1733; --hero-ink:#F5EBF7; --hero-muted:#D8BFD8;
-    --bg:#150E1A; --surface:#20152A; --ink:#F3EAF6; --muted:#BBA8C4; --line:#36263F;
-    --accent:#D8BFD8; --on-accent:#1E1026; --panel:#2A1733; --panel-ink:#F5EBF7; --shadow:none;
-  }
-}
-:root[data-theme="dark"]{
-  --hero-a:#3A2341; --hero-b:#2A1733; --hero-ink:#F5EBF7; --hero-muted:#D8BFD8;
-  --bg:#150E1A; --surface:#20152A; --ink:#F3EAF6; --muted:#BBA8C4; --line:#36263F;
-  --accent:#D8BFD8; --on-accent:#1E1026; --panel:#2A1733; --panel-ink:#F5EBF7; --shadow:none;
-}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf8f5;--card:#fff;--tx:#1f2328;--mut:#6b7280;--ac:#2f6f5e;--act:#fff;--bd:#e3ded6;--bad:#b42318}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#16181a;--card:#1f2224;--tx:#ececec;--mut:#9aa0a6;--ac:#6fc2a9;--act:#10201b;--bd:#33383b;--bad:#f2877d}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#16181a;--card:#1f2224;--tx:#ececec;--mut:#9aa0a6;--ac:#6fc2a9;--act:#10201b;--bd:#33383b;--bad:#f2877d}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.7 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;margin:0;line-height:1.05;letter-spacing:-.02em}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:66rem;margin:0 auto;padding:0 1.25rem}
-
-.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--hero-a),var(--hero-b));color:var(--hero-ink);padding:1.25rem 0 5rem;border-radius:0 0 2.5rem 2.5rem}
-.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
-.hero::before{width:26rem;height:26rem;background:#F3E6F5;top:-8rem;right:-6rem}
-.hero::after{width:22rem;height:22rem;background:#B98AC0;bottom:-10rem;left:-6rem;opacity:.4}
-.hero .wrap{position:relative;z-index:1}
-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem .6rem .6rem 1.1rem;background:rgba(255,255,255,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.5);border-radius:999px}
-nav b{font:800 1.1rem "Bricolage Grotesque",sans-serif}
-nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap;justify-content:flex-end}
-nav a{display:block;text-decoration:none;font:600 .9rem "Plus Jakarta Sans",sans-serif;padding:.45rem .85rem;border-radius:999px}
-nav a:hover{background:var(--accent);color:var(--on-accent)}
-.intro{padding:5rem 0 0;max-width:46rem}
-.badge{display:inline-flex;align-items:center;gap:.5rem;font:600 .9rem "Plus Jakarta Sans",sans-serif;padding:.35rem .9rem;background:rgba(255,255,255,.55);border-radius:999px;margin-bottom:1.5rem}
-.badge i{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent)}
-.hero h1{font-size:clamp(2.8rem,10vw,6rem);font-weight:800}
-.hero p.sub{font-size:1.2rem;color:var(--hero-muted);max-width:34rem;margin:1.5rem 0 2rem}
-.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 2.25rem;padding:0;list-style:none}
-.chips li{font:600 .95rem "Plus Jakarta Sans",sans-serif;padding:.45rem 1rem;border-radius:999px;background:rgba(255,255,255,.55)}
-.cta{display:flex;flex-wrap:wrap;gap:.75rem}
-.btn{display:inline-block;font:700 1rem "Plus Jakarta Sans",sans-serif;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.btn.primary{background:var(--accent);color:var(--on-accent);box-shadow:var(--shadow)}
-.btn.ghost{border:2px solid var(--accent);color:var(--hero-ink)}
-.btn:hover{transform:translateY(-2px)}
-
-section{padding:5rem 0 0}
-h2{font-size:clamp(2rem,6vw,3.1rem);font-weight:800;margin-bottom:.5rem}
-.lead{color:var(--muted);margin:0 0 2.25rem;max-width:34rem}
-.about{display:grid;gap:1.25rem}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:1.5rem;padding:1.75rem;box-shadow:var(--shadow)}
-.about .card p{margin:0 0 1rem}.about .card p:last-child{margin:0}
-.stats{display:grid;gap:1.25rem}
-.stat{border-radius:1.5rem;padding:1.5rem 1.75rem;background:var(--hero-b);color:var(--hero-ink)}
-.stat:nth-child(2){background:var(--accent);color:var(--on-accent)}
-.stat b{display:block;font:800 clamp(2.5rem,8vw,3.6rem) "Bricolage Grotesque",sans-serif;line-height:1}
-.stat span{font-weight:500}
-
-.works{display:grid;gap:1.25rem}
-.work{display:grid;gap:0;overflow:hidden;padding:0;transition:transform .25s}
-.work:hover{transform:translateY(-4px)}
-.cover{min-height:11rem;background:linear-gradient(135deg,var(--hero-b),#A774B1);display:grid;place-items:center;color:#2A1235}
-.cover span{font:800 clamp(2.8rem,9vw,4rem) "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
-.work .body{padding:1.75rem}
-.work h3{font-size:1.6rem;margin-bottom:.5rem}
-.work p{margin:0 0 1.25rem;color:var(--muted)}
-.tagrow{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.tag{font:600 .85rem "Plus Jakarta Sans",sans-serif;padding:.3rem .8rem;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
-
-.steps{display:grid;gap:1rem}
-.step{display:grid;gap:.35rem}
-.step .when{font:700 .85rem "Plus Jakarta Sans",sans-serif;color:var(--accent);letter-spacing:.02em}
-.step h3{font-size:1.35rem}
-.step p{margin:0;color:var(--muted)}
-
-.contact{background:var(--panel);color:var(--panel-ink);border-radius:2rem;padding:2.5rem 1.75rem}
-.contact h2{margin-bottom:.75rem}
-.contact p{max-width:32rem;margin:0 0 1.75rem;color:var(--thistle)}
-.links{display:flex;flex-wrap:wrap;gap:.75rem}
-.links a{display:inline-block;font:700 1rem "Plus Jakarta Sans",sans-serif;padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;background:var(--thistle);color:#2A1235;transition:transform .2s}
-.links a:hover{transform:translateY(-2px)}
-footer{padding:3rem 0 2rem;text-align:center;color:var(--muted);font-size:.9rem}
-
-.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.js .rv.in{opacity:1;transform:none}
-@media (min-width:48rem){
-  .about{grid-template-columns:1.5fr 1fr}
-  .steps{grid-template-columns:repeat(3,1fr)}
-  .work{grid-template-columns:1fr 1.3fr;max-width:46rem}
-  .contact{padding:3.5rem}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .js .rv{opacity:1;transform:none;transition:none}.btn,.links a,.work{transition:none}
-}
-</style>
-</head>
-<body>
-<header class="hero">
-  <div class="wrap">
-    <nav aria-label="Seções">
-      <b>Aline de Souza</b>
-      <ul><li><a href="#sobre">Sobre</a></li><li><a href="#trabalhos">Trabalhos</a></li><li><a href="#trajetoria">Trajetória</a></li><li><a href="#contato">Contato</a></li></ul>
-    </nav>
-    <div class="intro">
-      <span class="badge"><i></i>Professora e coordenadora pedagógica</span>
-      <h1>Professora Aline de Souza</h1>
-      <p class="sub">Aulas claras, exercícios que fazem pensar e materiais que os alunos realmente usam.</p>
-      <ul class="chips"><li>Informática</li><li>Administração</li><li>Comunicação</li></ul>
-      <div class="cta"><a class="btn primary" href="#trabalhos">Ver meus trabalhos</a><a class="btn ghost" href="#contato">Falar comigo</a></div>
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
-<section id="sobre">
-  <h2 class="rv">Sobre mim</h2>
-  <div class="about">
-    <div class="card rv">
-      <p>Sou professora de Informática, Administração e Comunicação. Acredito que aprender começa quando o aluno entende por que o assunto importa, por isso planejo cada aula a partir de um problema real.</p>
-      <p>Aqui reúno os materiais, projetos e resultados do meu trabalho em sala de aula.</p>
-    </div>
-    <div class="stats rv">
-      <div class="stat"><b>10+</b><span>turmas formadas no último ano</span></div>
-      <div class="stat"><b>3</b><span>áreas de ensino</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="trabalhos">
-  <h2 class="rv">Meus trabalhos</h2>
-  <p class="lead rv">Materiais que preparei para os alunos estudarem e consultarem.</p>
-  <div class="works">
-    <article class="card work rv">
-      <div class="cover" aria-hidden="true"><span>Excel</span></div>
-      <div class="body">
-        <h3>Apostila de Excel</h3>
-        <p>Material de estudo para os alunos aprenderem Excel no seu ritmo e consultarem depois da aula.</p>
-        <div class="tagrow"><span class="tag">Informática · Apostila</span><a class="btn primary" href="https://drive.google.com/file/d/1hEQsY74IQYV-rdJBp4-VqTh4tVT0OgzS/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir apostila</a></div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="trajetoria">
-  <h2 class="rv">Trajetória</h2>
-  <p class="lead rv">Do atendimento a pais e alunos à sala de aula.</p>
-  <div class="steps">
-    <div class="card step rv"><span class="when">2026</span><h3>Professora</h3><p>Professora de Administração e Comunicação em uma instituição conceituada. No último ano, formei mais de 10 turmas.</p></div>
-    <div class="card step rv"><span class="when">Anos anteriores</span><h3>Coordenadora pedagógica</h3><p>Treinei equipes de professores e fiz o atendimento a pais e alunos.</p></div>
-    <div class="card step rv"><span class="when">Formação</span><h3>Design e Computação Gráfica</h3><p>Tecnólogo em Design Gráfico, Universidade Nove de Julho. Atualmente cursando Licenciatura em Computação Gráfica, Universidade Estácio de Sá.</p></div>
-  </div>
-</section>
-
-<section id="contato">
-  <div class="contact rv">
-    <h2>Vamos conversar?</h2>
-    <p>Para parcerias, aulas particulares ou dúvidas sobre os materiais, escreva para mim.</p>
-    <div class="links">
-      <a href="mailto:professoralinedesouza@gmail.com">E-mail</a>
-      <a href="https://www.linkedin.com/in/aline-de-souza-71a3bb2a3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://www.instagram.com/professoralinedesouza" target="_blank" rel="noopener noreferrer">Instagram</a>
-    </div>
-  </div>
-</section>
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.3rem;margin:0 0 12px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+nav button{flex:1;padding:9px 6px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;font:inherit;cursor:pointer}
+nav button.on{background:var(--ac);color:var(--act);border-color:var(--ac)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:12px}
+input,select{font:inherit;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);min-width:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.row>input{flex:1 1 150px}
+.btn{padding:8px 12px;border:1px solid var(--ac);background:var(--ac);color:var(--act);border-radius:8px;font:inherit;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.s{background:transparent;color:var(--ac)}
+.x{background:none;border:none;color:var(--bad);cursor:pointer;font-size:1rem}
+.li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--bd)}
+.mut{color:var(--mut);font-size:.9rem}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+th,td{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left;white-space:nowrap}
+td input[type=number]{width:80px}
+.ok{color:var(--ac);font-weight:600}.no{color:var(--bad);font-weight:600}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+</style></head><body><main>
+<h1>Sistema de Notas</h1>
+<nav id="nav"></nav>
+<div id="v"></div>
 </main>
-<footer>© 2026 Professora Aline de Souza</footer>
 <script>
-(function(){
-  var els=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  els.forEach(function(e){io.observe(e)});
-})();
-</script>
-</body>
-</html>
+const MEDIA=7;
+const ITENS=['Atividade 1','Atividade 2','Participação','Avaliação'];
+let S={alunos:[],materias:[],notas:{}},tab='alunos',sel={m:'',b:'1'};
+try{const r=localStorage.getItem('notas-v1');if(r)S=JSON.parse(r)}catch(e){}
+const save=()=>{try{localStorage.setItem('notas-v1',JSON.stringify(S))}catch(e){}};
+const uid=()=>Math.random().toString(36).slice(2,9);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>n.toFixed(1).replace('.',',');
+const key=(a,m,b)=>a+'|'+m+'|'+b;
+function med(ns){const f=ns.filter(n=>n!=null);return f.length?f.reduce((x,y)=>x+y,0)/f.length:null}
+function sit(md){return md==null?'—':md>=MEDIA?'Aprovado':'Recuperação'}
+const tabs=[['alunos','Alunos'],['materias','Matérias'],['notas','Notas'],['boletim','Boletins'],['backup','Backup']];
+function go(t){tab=t;render()}
+function render(){
+  $('nav').innerHTML=tabs.map(([k,l])=>`<button class="${k===tab?'on':''}" onclick="go('${k}')">${l}</button>`).join('');
+  $('v').innerHTML=({alunos:vAlunos,materias:vMaterias,notas:vNotas,boletim:vBoletim,backup:vBackup})[tab]();
+}
+function vAlunos(){
+  return `<div class="card"><div class="row"><input id="an" placeholder="Nome do aluno"><input id="ae" type="email" placeholder="E-mail"><input id="at" placeholder="WhatsApp (com DDD)"></div>
+  <button class="btn" onclick="addAluno()">Cadastrar aluno</button></div>
+  <div class="card">${S.alunos.length?S.alunos.map(a=>`<div class="li"><div>${esc(a.nome)}<div class="mut">${esc(a.email||'sem e-mail')} · ${esc(a.tel||'sem WhatsApp')}</div></div><button class="x" onclick="del('alunos','${a.id}')">Remover</button></div>`).join(''):'<span class="mut">Nenhum aluno cadastrado.</span>'}</div>`;
+}
+function addAluno(){const n=$('an').value.trim();if(!n)return;S.alunos.push({id:uid(),nome:n,email:$('ae').value.trim(),tel:$('at').value.trim()});save();render()}
+function vMaterias(){
+  return `<div class="card"><div class="row"><input id="mn" placeholder="Nome da matéria"><button class="btn" onclick="addMat()">Adicionar</button></div></div>
+  <div class="card">${S.materias.length?S.materias.map(m=>`<div class="li"><span>${esc(m.nome)}</span><button class="x" onclick="del('materias','${m.id}')">Remover</button></div>`).join(''):'<span class="mut">Nenhuma matéria cadastrada.</span>'}</div>`;
+}
+function addMat(){const n=$('mn').value.trim();if(!n)return;S.materias.push({id:uid(),nome:n});save();render()}
+function del(k,id){if(!confirm('Remover? As notas ligadas também serão apagadas.'))return;S[k]=S[k].filter(x=>x.id!==id);for(const q in S.notas)if(q.split('|').includes(id))delete S.notas[q];save();render()}
+function vNotas(){
+  if(!S.alunos.length||!S.materias.length)return '<div class="card mut">Cadastre ao menos um aluno e uma matéria para lançar notas.</div>';
+  if(!S.materias.some(m=>m.id===sel.m))sel.m=S.materias[0].id;
+  return `<div class="card"><div class="row"><select onchange="sel.m=this.value;render()">${S.materias.map(m=>`<option value="${m.id}" ${m.id===sel.m?'selected':''}>${esc(m.nome)}</option>`).join('')}</select>
+  <select onchange="sel.b=this.value;render()">${[1,2,3,4].map(b=>`<option value="${b}" ${String(b)===sel.b?'selected':''}>${ITENS[b-1]}</option>`).join('')}</select></div>
+  <div class="tw"><table><tr><th>Aluno</th><th>Nota (0 a 10)</th></tr>${S.alunos.map(a=>{const v=S.notas[key(a.id,sel.m,sel.b)];return `<tr><td>${esc(a.nome)}</td><td><input type="number" min="0" max="10" step="0.1" value="${v==null?'':v}" onchange="setNota('${a.id}',this.value)"></td></tr>`}).join('')}</table></div></div>`;
+}
+function setNota(a,v){const k=key(a,sel.m,sel.b);v=v.replace(',','.');if(v===''||isNaN(+v))delete S.notas[k];else S.notas[k]=Math.min(10,Math.max(0,+v));save()}
+function linhas(a){return S.materias.map(m=>{const ns=[1,2,3,4].map(b=>S.notas[key(a.id,m.id,b)]);const md=med(ns);return{m:m.nome,ns,md}})}
+function txt(a){
+  const L=linhas(a).map(l=>l.m+': '+l.ns.map((n,i)=>ITENS[i]+': '+(n==null?'–':fmt(n))).join(' | ')+' → média '+(l.md==null?'–':fmt(l.md))+' ('+sit(l.md)+')');
+  return 'Boletim de '+a.nome+'\n\n'+L.join('\n')+'\n\nMédia para aprovação: '+MEDIA;
+}
+function vBoletim(){
+  if(!S.alunos.length)return '<div class="card mut">Cadastre alunos para gerar os boletins.</div>';
+  return S.alunos.map(a=>{
+    const ls=linhas(a);
+    const tel=(a.tel||'').replace(/\D/g,'');const wa=tel?(tel.length<=11?'55'+tel:tel):'';
+    const t=encodeURIComponent(txt(a));
+    return `<div class="card"><strong>${esc(a.nome)}</strong>
+    <div class="tw"><table><tr><th>Matéria</th>${ITENS.map(i=>`<th>${i}</th>`).join('')}<th>Média</th><th>Situação</th></tr>
+    ${ls.map(l=>`<tr><td>${esc(l.m)}</td>${l.ns.map(n=>`<td>${n==null?'–':fmt(n)}</td>`).join('')}<td>${l.md==null?'–':fmt(l.md)}</td><td class="${l.md==null?'':l.md>=MEDIA?'ok':'no'}">${sit(l.md)}</td></tr>`).join('')}</table></div>
+    <div class="acts">
+    ${a.email?`<a class="btn" target="_blank" rel="noopener" href="mailto:${esc(a.email)}?subject=${encodeURIComponent('Boletim de '+a.nome)}&body=${t}">Enviar por e-mail</a>`:''}
+    ${wa?`<a class="btn s" target="_blank" rel="noopener" href="https://wa.me/${wa}?text=${t}">Enviar por WhatsApp</a>`:''}
+    <button class="btn s" onclick="copiar('${a.id}',this)">Copiar texto</button></div></div>`}).join('');
+}
+async function copiar(id,b){const a=S.alunos.find(x=>x.id===id);try{await navigator.clipboard.writeText(txt(a));b.textContent='Copiado ✓'}catch(e){b.textContent='Não foi possível copiar'}}
+function vBackup(){
+  return `<div class="card"><strong>Backup dos dados</strong>
+  <p class="mut">Baixe um arquivo com todos os alunos, matérias e notas. Ele contém dados dos alunos, então guarde em local seguro.</p>
+  <div class="acts"><button class="btn" onclick="exportar()">Baixar backup</button>
+  <label class="btn s">Restaurar backup<input type="file" accept=".json,application/json" hidden onchange="importar(this)"></label></div>
+  <p id="bk" class="mut"></p></div>`;
+}
+function exportar(){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,1)],{type:'application/json'}));
+  a.download='backup-notas-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function importar(inp){
+  const f=inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result);
+      if(!Array.isArray(d.alunos)||!Array.isArray(d.materias)||!d.notas||typeof d.notas!=='object')throw 0;
+      if(!confirm('Isso substitui os dados atuais pelos do backup. Continuar?')){inp.value='';return}
+      S={alunos:d.alunos,materias:d.materias,notas:d.notas};save();render();
+      $('bk').textContent='Backup restaurado.';
+    }catch(e){$('bk').textContent='Arquivo inválido.'}
+  };
+  r.readAsText(f);
+}
+render();
+</script></body></html>
